@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "yvCLai2pCQJ0t07H1lyzwUa+nU1usw24WFY2g3xeIHsxxswwcgjm6PTBhf0rMCVfx3yAHgmFTZ2wnXprU8BSMg==",
+  "dgSpecHash": "tybxbzpKkMvX7ObkHJvUcVp8/2vzHo73rxoA4lOR/jHK3NYZYOOHOG2ErcX1/W8kDOg8btpuIuWy17whEo00/Q==",
   "success": true,
-  "projectFilePath": "C:\\Users\\GENARO\\Desktop\\carpetas\\OPP FILM\\Proyecto\\apiAspNetCoreLogin\\apiUsuarios2\\apiUsuarios2.csproj",
+  "projectFilePath": "C:\\Users\\GENARO\\Desktop\\carpetas\\OPP FILM\\Proyecto\\Canon\\apiAspNetCoreLogin\\apiUsuarios2\\apiUsuarios2.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\GENARO\\.nuget\\packages\\microsoft.aspnetcore.html.abstractions\\2.2.0\\microsoft.aspnetcore.html.abstractions.2.2.0.nupkg.sha512",
     "C:\\Users\\GENARO\\.nuget\\packages\\microsoft.aspnetcore.razor\\2.2.0\\microsoft.aspnetcore.razor.2.2.0.nupkg.sha512",

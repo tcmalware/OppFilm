@@ -8826,11 +8826,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\GENARO\\Desktop\\carpetas\\OPP FILM\\Proyecto\\apiAspNetCoreLogin\\apiUsuarios2\\apiUsuarios2.csproj",
+      "projectUniqueName": "C:\\Users\\GENARO\\Desktop\\carpetas\\OPP FILM\\Proyecto\\Canon\\apiAspNetCoreLogin\\apiUsuarios2\\apiUsuarios2.csproj",
       "projectName": "apiUsuarios2",
-      "projectPath": "C:\\Users\\GENARO\\Desktop\\carpetas\\OPP FILM\\Proyecto\\apiAspNetCoreLogin\\apiUsuarios2\\apiUsuarios2.csproj",
+      "projectPath": "C:\\Users\\GENARO\\Desktop\\carpetas\\OPP FILM\\Proyecto\\Canon\\apiAspNetCoreLogin\\apiUsuarios2\\apiUsuarios2.csproj",
       "packagesPath": "C:\\Users\\GENARO\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\GENARO\\Desktop\\carpetas\\OPP FILM\\Proyecto\\apiAspNetCoreLogin\\apiUsuarios2\\obj\\",
+      "outputPath": "C:\\Users\\GENARO\\Desktop\\carpetas\\OPP FILM\\Proyecto\\Canon\\apiAspNetCoreLogin\\apiUsuarios2\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\GENARO\\AppData\\Roaming\\NuGet\\NuGet.Config",
