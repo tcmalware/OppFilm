@@ -1,0 +1,106 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&family=Roboto:wght@400;500&display=swap');
+
+
+body {
+  padding-top: 4.2rem;
+  padding-bottom: 4.2rem;
+}
+
+.fa-id-card, .fa-key, .fa-circle-check{
+  color: #fa762c;
+  font-size: 25px;
+}
+
+div {
+  text-align: center;
+}
+
+.izq{
+  float: left !important;
+}
+
+a {
+  text-decoration: none !important;
+}
+
+h1 {
+  font-family: 'Roboto', sans-serif;
+}
+
+h3 {
+  font-family: 'Josefin Sans', sans-serif;
+}
+
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #959595;
+  margin: 1em 0;
+  padding: 0;
+}
+
+
+.fondo{
+  border-radius: 20px !important;
+  background: rgba(0,0,0,0.8) !important;
+}
+
+/*.tamano {
+  font-size: 26px;
+}*/
+
+.academy{
+  color: #ffffff;
+}
+
+
+.mybtn {
+  border-radius: 50px;
+}
+
+.login-or {
+  position: relative;
+  color: #000000;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.hr-or {
+  height: 1px;
+  margin-top: 0px !important;
+  margin-bottom: 0px !important;
+}
+
+.google {
+  color: #666;
+  width: 100%;
+  height: 40px;
+  text-align: center;
+  outline: none;
+  border: 1px solid lightgrey;
+}
+
+form .error {
+  color: #ff0000;
+}
+
+#second {
+  display: none;
+}
+
+.containerPrincipal {
+  position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    border: 1px solid blue;
+    padding: 40px;
+    background-color: white;
+}
+
+.containerLogin{
+  text-align: center;
+}

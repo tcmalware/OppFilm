@@ -1,13 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, Fragment } from 'react';
 import md5 from 'md5';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Cookies from 'universal-cookie';
 import axios from 'axios';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCircleCheck, faIdCard, faKey, } from '@fortawesome/free-solid-svg-icons';
-import { NavLink, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import '../css/Login.css';
-
+import { Helmet } from 'react-helmet';
+import Images from '../img/index.js'
 
 function Register(props) {
 
@@ -55,72 +54,90 @@ function Register(props) {
     }, []);
 
     return (
-        <div className="container">
-            <div className="row">
-                <div className='<div class="col-md-5 mx-auto'>
-                    <div className="myform form ">
-                        <div class="logo mb-3">
-                            <div class="col-md-12 text-center">
-                                <h1 className='academy'>Oben Academy</h1>
-                            </div>
-                        </div>
-                        <form>
-                            <div class="form-group">
-                                <label className='izq' style={{ color: "white", fontSize: '25px' }}><FontAwesomeIcon icon={faIdCard} />  Documento de identidad </label>
+        <div className="grid-container">
+            <Fragment>
+                <Helmet>
+                    <style>{`
+                  body {
+                    background-image: url(${Images.planta});
+                    background-repeat: no-repeat;
+                    background-position: top;
+                    background-attachment: fixed;
+                    padding-top: 4.2rem;
+                    padding-bottom: 4.2rem;  
+                    background-size: cover;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%; /* change this value to adjust the width of the overlay */
+                    height: 100%;
+                    box-shadow: inset 0 0 0 1000px rgba(238,124,58,.6);
+                    z-index: -1; 
+                  }
+                                      
+                  `}
+                    </style>
+                </Helmet>
+            </Fragment>
+            <div class="rectangle">
+                <div className="grid-item form-container">
+                    <div className="form-wrapper">
+                        <div className="myform form ">
+                            <div className="logo mb-3">
 
-                                <input
-                                    type="text"
-                                    className="form-control"
-                                    placeholder='Ingrese del Documento de identidad'
-                                    name="traba_nr_doc"
-                                    onChange={handleChange}
-                                />
                             </div>
-                            <div class="form-group">
-                                <label className='izq' style={{ color: "white", fontSize: '25px' }}><FontAwesomeIcon icon={faKey} />  Contraseña </label>
-                                <input
-                                    type="password"
-                                    className="form-control"
-                                    placeholder='Ingrese su Contraseña'
-                                    name="password"
-                                    onChange={handleChange}
-                                />
-                            </div>
-                            <div class="form-group">
-                                <label className='izq' style={{ color: "white", fontSize: '25px' }}><FontAwesomeIcon icon={faCircleCheck} />  Confirme su Contraseña </label>
-                                <input
-                                    type="password"
-                                    className="form-control"
-                                    placeholder='Confirme su Contraseña'
-                                    name="password"
-                                    onChange={handleChange}
-                                />
-                            </div>
-                            <div class="form-group">
-                                <p class="text-center" style={{ color: "white" }}>¿Ya tienes una cuenta? <a href="" id="login"><Link to={"/"}>Inicia Sesión Aqui!</Link></a></p>
-                            </div>
-                            <div class="col-md-12 text-center ">
-                                <button className="btn btn-block mybtn btn-success tx-tfm" onClick={() => iniciarSesion()}>Iniciar Sesión</button>
-                            </div>
-                            <div class="col-md-12 ">
-                                <div class="login-or">
-                                    <hr class="hr-or"></hr>
-                                    <span class="span-or">O</span>
+                            <form>
+                                <div className="form-group">
+                                    <img className='acad' src={require('../img/logo.png')} alt="logo" />
+                                    <input
+                                        type="text"
+                                        className="form-control"
+                                        placeholder='Ingrese su documento de identidad'
+                                        name="traba_nr_doc"
+                                        onChange={handleChange}
+                                    />
                                 </div>
-                            </div>
-                            <div class="col-md-12 mb-3">
-                                <p class="text-center">
-                                    <a href="javascript:void();" class="google btn btn-light mybtn">
-                                        Inicia Sesion con Google
-                                    </a>
-                                </p>
-                            </div>
-                        </form>
+                                <div className="form-group">
+                                    <input
+                                        type="password"
+                                        className="form-control"
+                                        placeholder='Ingrese su contraseña'
+                                        name="password"
+                                        onChange={handleChange}
+                                    />
+                                </div>
+                                <div className="form-group"> {/* Confirmar la contraseña */}
+                                    <input
+                                        type="password"
+                                        className="form-control"
+                                        placeholder='Confirme su contraseña'
+                                        name="password"
+                                        onChange={handleChange}
+                                    />
+                                </div>
+                                <div className="col-md-12 text-center ">
+                                    <button className="btn btn-block mybtn btn-success tx-tfm" onClick={() => iniciarSesion()}>Registrarse</button>
+                                </div>
+                                <div className="col-md-12 ">
+                                    <div className="login-or">
+                                        <hr className="hr-or"></hr>
+                                        <span className="span-or">O</span>
+                                    </div>
+                                </div>
+                                <div className="col-md-12 mb-3">
+
+                                <p class="text-center">¿Ya tienes una cuenta? <a href="" id="login"><Link to={"/"}>Inicia sesión aqui</Link></a></p>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div className="image-wrapper">
+                        <img className='logo' src={require('../img/logo_multic.png')} alt="logo" />
                     </div>
                 </div>
+
             </div>
         </div>
-
     );
 }
 

@@ -1,16 +1,14 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, Component, Fragment } from 'react';
 import md5 from 'md5';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Cookies from 'universal-cookie';
 import axios from 'axios';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faIdCard, faKey,  } from '@fortawesome/free-solid-svg-icons';
-import { NavLink, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet';
 import '../css/Login.css';
-
+import Images from '../img/index.js'
 
 function Login(props) {
-
   const baseUrl = "https://localhost:44322/api/usuarios";
   const cookies = new Cookies();
 
@@ -55,62 +53,84 @@ function Login(props) {
   }, []);
 
   return (
-    <div className="container">
-      <div className="row">
-        <div className='<div class="col-md-5 mx-auto'>
+    <div className="grid-container">
+      <Fragment>
+        <Helmet>
+          <style>{`
+                  body {
+                    background-image: url(${Images.planta});
+                    background-repeat: no-repeat;
+                    background-position: top;
+                    background-attachment: fixed;
+                    padding-top: 4.2rem;
+                    padding-bottom: 4.2rem;  
+                    background-size: cover;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%; /* change this value to adjust the width of the overlay */
+                    height: 100%;
+                    box-shadow: inset 0 0 0 1000px rgba(238,124,58,.6);
+                    z-index: -1; 
+                  }
+                                      
+                  `}
+          </style>
+        </Helmet>
+      </Fragment>
+      <div class="rectangle">
+      <div className="grid-item form-container">
+        <div className="form-wrapper">
           <div className="myform form ">
-            <div class="logo mb-3">
-              <div class="col-md-12 text-center">
-                <h1 className='academy'>Oben Academy</h1>
-              </div>
+            <div className="logo mb-3">
+              
             </div>
             <form>
-              <div class="form-group">
-                <label className='izq' style={{ color: "white", fontSize: '25px' }}><FontAwesomeIcon icon={faIdCard} />  Documento de identidad </label>
-
+              <div className="form-group">
+              <img className='acad' src={require('../img/logo.png')} alt="logo" />
                 <input
                   type="text"
                   className="form-control"
-                  placeholder='Ingrese del Documento de identidad'
+                  placeholder='Ingrese su Documento de identidad'
                   name="traba_nr_doc"
                   onChange={handleChange}
                 />
               </div>
-              <div class="form-group">
-                <label className='izq' style={{ color: "white", fontSize: '25px' }}><FontAwesomeIcon icon={faKey} />  Contraseña </label>
+              <div className="form-group">
                 <input
                   type="password"
                   className="form-control"
-                  placeholder='Ingrese su Contraseña'
+                  placeholder='Ingrese su contraseña'
                   name="password"
                   onChange={handleChange}
                 />
               </div>
-              <div class="form-group">
-                <p class="text-center" style={{ color: "white" }}>¿No tienes una cuenta?<a href="" id="signup"><Link to={"/register"}>Registrate Aqui!</Link></a></p>
+              <div className="form-group">
+              <p className="text-left">¿Olvidaste tu contraseña?</p>
               </div>
-              <div class="col-md-12 text-center ">
-                <button className="btn btn-block mybtn btn-success tx-tfm" onClick={() => iniciarSesion()}>Iniciar Sesión</button>
+              <div className="col-md-12 text-center ">
+                <button className="btn btn-block mybtn btn-success tx-tfm" onClick={() => iniciarSesion()}>Iniciar sesión</button>
               </div>
-              <div class="col-md-12 ">
-                <div class="login-or">
-                  <hr class="hr-or"></hr>
-                  <span class="span-or">O</span>
+              <div className="col-md-12 ">
+                <div className="login-or">
+                  <hr className="hr-or"></hr>
+                  <span className="span-or">O</span>
                 </div>
               </div>
-              <div class="col-md-12 mb-3">
-                <p class="text-center">
-                  <a href="javascript:void();" class="google btn btn-light mybtn">
-                    Inicia Sesion con Google
-                  </a>
-                </p>
+              <div className="col-md-12 mb-3">
+                
+                <p className="text-center">¿No tienes una cuenta?<a href="" id="signup"><Link to={"/register"}>  Registrate aqui!</Link></a></p>
               </div>
-            </form>
-          </div>
+            </form>            
+          </div>          
         </div>
-      </div>
+        <div className="image-wrapper">
+          <img className='logo' src={require('../img/logo_multic.png')} alt="logo" />
+        </div>
+        </div>
+          
+      </div>      
     </div>
-
   );
 }
 
