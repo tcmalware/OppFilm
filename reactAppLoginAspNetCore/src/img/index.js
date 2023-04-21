@@ -1,6 +1,6 @@
 const Images = {
-    planta: require('./oben.jpg'),
-    test: require('./2.png')
+    planta: require('./oben_2.jpg'),
+    test: require('./oben.jpg')
 }
 
 export default Images

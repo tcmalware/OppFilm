@@ -9,6 +9,7 @@ import '../css/Login.css';
 import Images from '../img/index.js'
 
 function Login(props) {
+  // el localhost del API varia dependiendo del dispositivo en uso
   const baseUrl = "https://localhost:44322/api/usuarios";
   const cookies = new Cookies();
 
@@ -46,6 +47,17 @@ function Login(props) {
       })
   }
 
+  function imposeMinMax(el){
+    if(el.value != ""){
+      if(parseInt(el.value) < parseInt(el.min)){
+        el.value = el.min;
+      }
+      if(parseInt(el.value) > parseInt(el.max)){
+        el.value = el.max;
+      }
+    }
+  }
+
   useEffect(() => {
     if (cookies.get('id')) {
       props.history.push('/menu');
@@ -68,12 +80,10 @@ function Login(props) {
                     position: absolute;
                     top: 0;
                     left: 0;
-                    width: 100%; /* change this value to adjust the width of the overlay */
+                    width: 100%;
                     height: 100%;
-                    box-shadow: inset 0 0 0 1000px rgba(238,124,58,.6);
                     z-index: -1; 
-                  }
-                                      
+                  }                                      
                   `}
           </style>
         </Helmet>
@@ -87,11 +97,14 @@ function Login(props) {
             </div>
             <form>
               <div className="form-group">
-              <img className='acad' src={require('../img/logo.png')} alt="logo" />
+                <img className='acad' src={require('../img/logo.png')} alt="logo" />
+              </div>
+              <div className="form-group">
                 <input
-                  type="text"
+                  type="text" 
+                  maxLength="10"
                   className="form-control"
-                  placeholder='Ingrese su Documento de identidad'
+                  placeholder='Ingresa tu documento de identidad'
                   name="traba_nr_doc"
                   onChange={handleChange}
                 />
@@ -100,7 +113,7 @@ function Login(props) {
                 <input
                   type="password"
                   className="form-control"
-                  placeholder='Ingrese su contraseña'
+                  placeholder='Ingresa tu contraseña'
                   name="password"
                   onChange={handleChange}
                 />
@@ -109,7 +122,7 @@ function Login(props) {
               <p className="text-left">¿Olvidaste tu contraseña?</p>
               </div>
               <div className="col-md-12 text-center ">
-                <button className="btn btn-block mybtn btn-success tx-tfm" onClick={() => iniciarSesion()}>Iniciar sesión</button>
+                <button className="naranjabtn btn btn-block mybtn btn-success tx-tfm" onClick={() => iniciarSesion()}>Iniciar sesión</button>
               </div>
               <div className="col-md-12 ">
                 <div className="login-or">
@@ -117,8 +130,7 @@ function Login(props) {
                   <span className="span-or">O</span>
                 </div>
               </div>
-              <div className="col-md-12 mb-3">
-                
+              <div className="col-md-12 mb-3">                
                 <p className="text-center">¿No tienes una cuenta?<a href="" id="signup"><Link to={"/register"}>  Registrate aqui!</Link></a></p>
               </div>
             </form>            
