@@ -4,7 +4,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Cookies from 'universal-cookie';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
-import '../css/Login.css';
 import { Helmet } from 'react-helmet';
 import Images from '../img/index.js'
 
@@ -122,7 +121,7 @@ function Register(props) {
                                     <input
                                         type="text"
                                         className="form-control"
-                                        placeholder='Ingresa tu correo (gmail, hotmail,outlook)'
+                                        placeholder='Ingresa tu correo corporativo o personal.'
                                         name="#"
                                         onChange={handleChange}
                                     />
@@ -149,7 +148,7 @@ function Register(props) {
                                     <input
                                         type="password"
                                         className="form-control"
-                                        placeholder='Confirme su contraseña'
+                                        placeholder='Confirma tu contraseña'
                                         name="password"
                                         onChange={handleChange}
                                     />
@@ -164,7 +163,6 @@ function Register(props) {
                                     </div>
                                 </div>
                                 <div className="col-md-12 mb-3">
-
                                     <p class="text-center">¿Ya tienes una cuenta? <a href="" id="login"><Link to={"/"}>Inicia sesión aqui</Link></a></p>
                                 </div>
                             </form>

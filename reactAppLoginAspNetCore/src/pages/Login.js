@@ -5,13 +5,24 @@ import Cookies from 'universal-cookie';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
-import '../css/Login.css';
+import '../css/Styles.css';
 import Images from '../img/index.js'
-
+import Popup from 'reactjs-popup';
+import 'reactjs-popup/dist/index.css';
 function Login(props) {
   // el localhost del API varia dependiendo del dispositivo en uso
   const baseUrl = "https://localhost:44322/api/usuarios";
   const cookies = new Cookies();
+
+  const [showForgotPasswordPopup, setShowForgotPasswordPopup] = useState(false);
+
+  const handleForgotPasswordClick = () => {
+    setShowForgotPasswordPopup(true);
+  };
+
+  const handleForgotPasswordClose = () => {
+    setShowForgotPasswordPopup(false);
+  };
 
   const [form, setForm] = useState({
     traba_nr_doc: '',
@@ -64,6 +75,7 @@ function Login(props) {
     }
   }, []);
 
+  
   return (
     <div className="grid-container">
       <Fragment>
@@ -82,7 +94,62 @@ function Login(props) {
                     left: 0;
                     width: 100%;
                     height: 100%;
-                    z-index: -1; 
+                    z-index: -1;
+                  } 
+
+                    .popup-content {
+                      background-color: #fff;
+                      border-radius: 10px;
+                      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+                      padding: 20px;
+                      max-width: 500px;
+                      margin: 0 auto;
+                      text-align: center;
+                      width: 95%;
+                    }
+                    
+                    .popup-header {
+                      font-size: 24px;
+                      font-weight: bold;
+                      margin-bottom: 10px;
+                    }
+                    
+                    .popup-input {
+                      display: block;
+                      width: 100%;
+                      padding: 10px;
+                      margin-bottom: 20px;
+                      border-radius: 5px;
+                      border: 1px solid #ccc;
+                    }
+                    
+                    .popup-button {
+                      display: block;
+                      width: 100%;
+                      padding: 10px;
+                      background-color: #f60;
+                      color: #fff;
+                      border-radius: 5px;
+                      border: none;
+                      cursor: pointer;
+                    }
+                    
+                    .popup-button:hover {
+                      background-color: #e50;
+                    }
+
+                    @media (max-width: 768px) {
+                      .popup-content {
+                        width: 90%;
+                      }
+                    }
+                    
+                    /* styles for screens with a width of 576px or less */
+                    @media (max-width: 576px) {
+                      .popup-content {
+                        width: 95%;
+                      }
+                    }
                   }                                      
                   `}
           </style>
@@ -119,7 +186,19 @@ function Login(props) {
                 />
               </div>
               <div className="form-group">
-              <p className="text-left">¿Olvidaste tu contraseña?</p>
+              <a className="text-right" href="#clave-olvidada" onClick={handleForgotPasswordClick}>¿Olvidaste tu contraseña?</a>
+                <Popup open={showForgotPasswordPopup} closeOnDocumentClick onClose={handleForgotPasswordClose}>
+                  <div className="popup-content">
+                    <div className="popup-header">¿Olvidaste tu contraseña?</div>
+                    <div className="popup-message">Porfavor ingrese su DNI, para enviarle un correo en donde se rastaurará su contraseña:</div>
+                    <form>                      
+                      <input type="number" id="dni" name="dni" className="popup-input" />
+                      <label htmlFor="Resultado_dni">Se envió su nueva contraseña al siguiente correo:</label>
+                      <label htmlFor="Resultado_dni">##########@gmail.com</label>
+                      <button type="submit" className="popup-button">Enviar</button>                      
+                    </form>
+                  </div>
+                </Popup>
               </div>
               <div className="col-md-12 text-center ">
                 <button className="naranjabtn btn btn-block mybtn btn-success tx-tfm" onClick={() => iniciarSesion()}>Iniciar sesión</button>
@@ -133,6 +212,9 @@ function Login(props) {
               <div className="col-md-12 mb-3">                
                 <p className="text-center">¿No tienes una cuenta?<a href="" id="signup"><Link to={"/register"}>  Registrate aqui!</Link></a></p>
               </div>
+              <div className="col-md-12 mb-3">                
+                <a href="" id="signup"><Link to={"/menu"}>  Menú!</Link></a>
+              </div>
             </form>            
           </div>          
         </div>
@@ -144,6 +226,7 @@ function Login(props) {
       </div>      
     </div>
   );
+  
 }
 
 export default Login;

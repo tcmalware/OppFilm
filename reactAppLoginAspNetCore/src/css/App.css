@@ -1,0 +1,89 @@
+.App {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    font-family: Arial, sans-serif;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #004477;
+    color: white;
+    padding: 10px;
+}
+
+.navbar-logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.navbar-menu ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.navbar-menu li {
+    margin-right: 20px;
+}
+
+.navbar-menu a {
+    color: white;
+    text-decoration: none;
+}
+
+.navbar-menu a:hover {
+    text-decoration: underline;
+}
+
+.navbar-toggle {
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.sidebar {
+    background-color: #f0f0f0;
+    width: 200px;
+    position: fixed;
+    top: 70px;
+    left: -200px;
+    height: calc(100vh - 70px);
+    transition: all 0.3s ease-in-out;
+    z-index: 1;
+}
+
+.sidebar.open {
+    left: 0;
+}
+
+.sidebar ul {
+    list-style: none;
+    margin: 0;
+    padding: 20px;
+}
+
+.sidebar a {
+    color: #004477;
+    text-decoration: none;
+}
+
+.sidebar a:hover {
+    text-decoration: underline;
+}
+
+.content {
+    padding: 20px;
+    flex: 1;
+}
+
+h1 {
+    font-size: 36px;
+    margin-top: 0;
+}
+
+p {
+    font-size: 24px;
+}
